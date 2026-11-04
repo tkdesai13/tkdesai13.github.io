@@ -1,5 +1,13 @@
 # One entry per paper. type: journal | conference | preprint
 # selected: true  -> also shown on the home page
+- title: "Forecasting battery capacity with dynamic transitions in operational conditions"
+  authors: "T. Desai, R. M. G. Ferrari"
+  venue: "Energy and AI"
+  year: 2026
+  type: journal
+  doi: "10.1016/j.egyai.2026.100694"
+  selected: true
+
 - title: "Adaptive multirate moving horizon estimator for real-time battery state and parameter estimation"
   authors: "T. Desai, F. Oliva, D. Carnevale, R. M. G. Ferrari"
   venue: "IEEE Transactions on Control Systems Technology"
@@ -38,9 +46,3 @@
   type: conference
   doi: "10.1016/j.ifacol.2023.10.709"
   arxiv: "2310.14332"
-  selected: true
-
-- title: "Forecasting battery capacity with dynamic transitions in operational conditions"
-  authors: "T. Desai, R. M. G. Ferrari"
-  venue: "SSRN preprint 5482169"
-  type: preprint

@@ -130,8 +130,6 @@ permalink: /resume/
 {% include pubs.html type="journal" %}
 <h3 class="pub-group">Conference papers</h3>
 {% include pubs.html type="conference" %}
-<h3 class="pub-group">Preprints</h3>
-{% include pubs.html type="preprint" %}
 
 <h2 id="projects">Projects</h2>
 <ol class="timeline">
