@@ -4,13 +4,15 @@
 {% else %}
   {% assign items = site.data.publications | where: "type", include.type %}
 {% endif %}
-<ol class="pubs">
+<ol class="pubs{% if include.selected %} pubs-compact{% endif %}">
 {% for p in items %}
   <li>
-    <span class="title">{{ p.title }}</span>
-    <span class="authors">{{ p.authors | replace: "T. K. Desai", "<span class='me'>T. K. Desai</span>" | replace: "T. Desai", "<span class='me'>T. Desai</span>" }}</span>
-    <span class="venue"><em>{{ p.venue }}</em>{% if p.details %}, {{ p.details }}{% endif %}{% if p.year %}, {{ p.year }}{% endif %}</span>
-    {% if p.doi or p.arxiv %}<span class="links">{% if p.doi %}<a href="https://doi.org/{{ p.doi }}">DOI</a>{% endif %}{% if p.arxiv %}<a href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif %}</span>{% endif %}
+    <span class="yr">{{ p.year }}</span>
+    <div>
+      {% if p.doi %}<a class="title" href="https://doi.org/{{ p.doi }}">{{ p.title }}</a>{% else %}<span class="title">{{ p.title }}</span>{% endif %}
+      <span class="authors">{{ p.authors | replace: "T. K. Desai", "<span class='me'>T. K. Desai</span>" | replace: "T. Desai", "<span class='me'>T. Desai</span>" }}</span>
+      <span class="venue"><em>{{ p.venue }}</em>{% if p.details %}, {{ p.details }}{% endif %}{% if p.arxiv %}<a class="extra" href="https://arxiv.org/abs/{{ p.arxiv }}">arXiv</a>{% endif %}</span>
+    </div>
   </li>
 {% endfor %}
 </ol>

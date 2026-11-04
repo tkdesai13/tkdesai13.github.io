@@ -115,8 +115,6 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 .hero .portrait { width: 9.5rem; height: 9.5rem; border-radius: 50%; object-fit: cover; }
 @media (max-width: 640px) { .hero { grid-template-columns: 1fr; } .hero .portrait { order: -1; width: 7rem; height: 7rem; } }
 
-.contact { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; font-family: var(--sans); font-size: .92rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
-.contact a { font-weight: 500; }
 
 /* Home: dispatch chart (the one loud element) -------------------- */
 .day-curve { margin: 3rem 0 1rem; padding: 1.4rem 1.5rem 1.2rem 1rem; background: var(--paper-2); border-radius: 10px; }
@@ -181,14 +179,37 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 
 /* Publications ---------------------------------------------------- */
 .pubs { list-style: none; padding: 0; margin: 0 0 1.5rem; }
-.pubs li { padding: .8rem 0; border-top: 1px solid var(--rule); }
+.pubs li { display: grid; grid-template-columns: 7.5rem 1fr; column-gap: 3rem; padding: .9rem 0; border-top: 1px solid var(--rule); }
 .pubs li:last-child { border-bottom: 1px solid var(--rule); }
-.pubs .title { display: block; font-weight: 600; line-height: 1.45; }
+.pubs .yr { font-family: var(--sans); font-size: .82rem; color: var(--muted); text-align: right; padding-top: .2rem; font-variant-numeric: tabular-nums; }
+.pubs .title { display: block; font-weight: 600; line-height: 1.45; color: var(--ink); }
+.pubs a.title { text-decoration: none; }
+.pubs a.title:hover { color: var(--return); text-decoration: underline; }
 .pubs .authors, .pubs .venue { display: block; font-size: .92rem; color: var(--muted); }
 .pubs .venue em { color: var(--ink); }
 .pubs .me { color: var(--ink); font-weight: 600; }
-.pubs .links { font-family: var(--sans); font-size: .82rem; display: inline-flex; gap: .9rem; margin-top: .2rem; }
+.pubs .extra { font-family: var(--sans); font-size: .8rem; margin-left: .8rem; }
+.pubs-compact li { grid-template-columns: 3.25rem 1fr; column-gap: 1.25rem; }
+.pubs-compact .yr { text-align: left; }
 .pub-group { font-family: var(--sans); font-size: .95rem; font-weight: 500; color: var(--muted); margin: 1.6rem 0 .4rem; }
+@media (max-width: 600px) {
+  .pubs li { grid-template-columns: 1fr; }
+  .pubs .yr { text-align: left; padding-top: 0; }
+}
+
+/* Home: actions under the bio, section heads with a link ------------ */
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.5rem; margin-top: 1.75rem; font-family: var(--sans); font-size: .9rem; }
+.btn { display: inline-block; padding: .5rem 1.15rem; border: 1px solid var(--rule); border-radius: 999px; color: var(--ink); font-weight: 500; text-decoration: none; line-height: 1.2; }
+.btn:hover { border-color: var(--muted); text-decoration: none; }
+.btn-primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: color-mix(in srgb, var(--ink) 82%, var(--paper)); border-color: transparent; }
+.actions .btn + .btn { margin-left: -.85rem; }
+.profiles { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
+.profiles a { color: var(--muted); text-decoration-color: var(--rule); }
+.profiles a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 3.25rem 0 1.1rem; }
+.section-head h2 { margin: 0; }
+.section-head a { font-family: var(--sans); font-size: .88rem; white-space: nowrap; }
 
 /* Post lists ------------------------------------------------------ */
 .post-list { list-style: none; padding: 0; margin: 0; }

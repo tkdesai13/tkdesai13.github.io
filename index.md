@@ -21,13 +21,15 @@ title: About
         batteries in European electricity markets.
       </p>
     </div>
-    <ul class="contact">
-      <li><a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
-      <li><a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a></li>
-      <li><a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">Google Scholar</a></li>
-      <li><a href="https://github.com/{{ site.author.github }}">GitHub</a></li>
-      <li><a href="{{ '/resume/' | relative_url }}">Resume</a></li>
-    </ul>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/resume/' | relative_url }}">Resume</a>
+      <a class="btn" href="mailto:{{ site.author.email }}">Email me</a>
+      <span class="profiles">
+        <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a>
+        <a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">Google Scholar</a>
+        <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+      </span>
+    </div>
   </div>
   <img class="portrait" src="{{ '/assets/img/portrait.jpg' | relative_url }}" alt="Photo of {{ site.author.name }}" width="420" height="420">
 </section>
@@ -42,11 +44,16 @@ title: About
   <li><span class="tile">{{ site.data.icons.market }}</span><span>Battery bidding in day-ahead, intraday and balancing markets</span></li>
 </ul>
 
-<h2>Selected publications</h2>
+<div class="section-head">
+  <h2>Selected publications</h2>
+  <a href="{{ '/resume/' | relative_url }}#publications">All publications</a>
+</div>
 {% include pubs.html selected=true %}
-<p class="more"><a href="{{ '/resume/' | relative_url }}#publications">All publications</a></p>
 
-<h2>Writing</h2>
+<div class="section-head">
+  <h2>Writing</h2>
+  <a href="{{ '/blog/' | relative_url }}">All posts</a>
+</div>
 <ul class="post-list">
 {% for post in site.posts limit: 5 %}
   {% assign ic = post.icon | default: "forecast" %}
@@ -62,4 +69,3 @@ title: About
   <li><span class="empty">No posts yet.</span></li>
 {% endfor %}
 </ul>
-<p class="more"><a href="{{ '/blog/' | relative_url }}">All posts</a></p>
