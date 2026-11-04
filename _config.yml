@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------
+# Site settings. Edit these first.
+# ---------------------------------------------------------------
+title: Tushar Desai
+description: >-
+  Data scientist working on optimisation and state estimation for energy
+  systems: district heating networks, batteries and electricity markets.
+url: "https://tkdesai13.github.io"   # replace tkdesai13 with your GitHub username
+baseurl: ""                          # leave empty for a tkdesai13.github.io repo
+
+author:
+  name: Tushar Desai
+  email: tkdesai39@gmail.com
+  location: Almere, the Netherlands
+  github: tkdesai13                   # GitHub username
+  linkedin: ""                       # e.g. tushar-desai-123
+  scholar: ""                        # Google Scholar user id, e.g. AbCdEfGhIjK
+
+# Navigation (order matters)
+nav:
+  - title: About
+    url: /
+  - title: Resume
+    url: /resume/
+  - title: Blog
+    url: /blog/
+
+# ---------------------------------------------------------------
+# Build settings (GitHub Pages compatible, no need to change)
+# ---------------------------------------------------------------
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: null        # MathJax renders $...$ and $$...$$ in the browser
+  syntax_highlighter: rouge
+permalink: /blog/:year/:month/:title/
+timezone: Europe/Amsterdam
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: /feed.xml
+
+# Every post gets the post layout and MathJax unless it says otherwise.
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post, math: true }
+  - scope: { path: "", type: drafts }
+    values: { layout: post, math: true }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
