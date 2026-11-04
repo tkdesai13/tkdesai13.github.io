@@ -14,6 +14,20 @@ permalink: /resume/
   </p>
 </header>
 
+<nav class="cv-toc" aria-label="Resume sections">
+  <ol>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#energy-finance">Energy and finance</a></li>
+    <li><a href="#schools">Schools and workshops</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#languages">Languages</a></li>
+  </ol>
+</nav>
+
 <p class="cv-summary">
   I build machine learning and forecasting models and take them from first analysis to use in
   operations. At Gradyent I forecast heat demand from smart heat meter data and deploy the models as
@@ -214,3 +228,29 @@ permalink: /resume/
   <li>German<span>B1</span></li>
   <li>Dutch<span>A2, learning</span></li>
 </ul>
+
+<script>
+  // Highlight the section currently in view in the resume menu.
+  (function () {
+    var nav = document.querySelector('.cv-toc');
+    if (!nav) return;
+    var links = [].slice.call(nav.querySelectorAll('a'));
+    var heads = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+    function update() {
+      var line = window.innerHeight * 0.3, current = 0;
+      heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top <= line) current = i; });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = heads.length - 1;
+      links.forEach(function (a, i) {
+        a.classList.toggle('active', i === current);
+        if (i === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
+      if (nav.scrollWidth > nav.clientWidth) {
+        var a = links[current];
+        nav.scrollLeft = a.offsetLeft - nav.clientWidth / 2 + a.offsetWidth / 2;
+      }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
