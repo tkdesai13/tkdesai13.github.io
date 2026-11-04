@@ -104,22 +104,39 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 .contact { display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; font-family: var(--sans); font-size: .92rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
 .contact a { font-weight: 500; }
 
-/* Home: the day curve (the one loud element) ---------------------- */
-.day-curve { margin: 3rem 0 1rem; padding: 1.5rem 1.5rem 1.1rem; background: var(--paper-2); border-radius: 10px; }
-.day-curve svg { display: block; width: 100%; height: 11rem; overflow: visible; animation: draw 1.8s cubic-bezier(.4,0,.2,1) .2s both; }
-.day-curve .grid line { stroke: var(--rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
-.day-curve .line { fill: none; stroke-width: 2.25; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.day-curve .line.demand { stroke: var(--supply); }
-.day-curve .line.price { stroke: var(--return); }
-.day-curve .axis { display: flex; justify-content: space-between; font-family: var(--sans); font-size: .72rem; color: var(--muted); margin-top: .35rem; font-variant-numeric: tabular-nums; }
-.day-curve figcaption { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; margin-top: .9rem; }
-.day-curve .key { color: var(--ink); font-weight: 500; }
-.day-curve .key::before { content: ""; display: inline-block; width: 1.4rem; height: 2px; vertical-align: middle; margin-right: .5rem; border-radius: 1px; }
-.day-curve .key.demand::before { background: var(--supply); }
-.day-curve .key.price::before { background: var(--return); }
-.day-curve .note { flex-basis: 100%; }
+/* Home: dispatch chart (the one loud element) -------------------- */
+.day-curve { margin: 3rem 0 1rem; padding: 1.4rem 1.5rem 1.2rem 1rem; background: var(--paper-2); border-radius: 10px; }
+.day-curve .panel-title { font-family: var(--sans); font-size: .82rem; font-weight: 500; color: var(--ink); margin: 0 0 .4rem 3.4rem; display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; align-items: baseline; }
+.day-curve .panel-title + .plot { margin-bottom: 1.1rem; }
+.day-curve .unit { color: var(--muted); font-weight: 400; }
+.day-curve .plot { display: grid; grid-template-columns: 3.4rem 1fr; }
+.day-curve .yaxis { position: relative; font-family: var(--sans); font-size: .68rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.day-curve .yaxis span { position: absolute; right: .55rem; transform: translateY(-50%); white-space: nowrap; }
+.day-curve svg { display: block; width: 100%; overflow: visible; animation: draw 1.8s cubic-bezier(.4,0,.2,1) .2s both; }
+.day-curve .p-price { height: 8rem; }
+.day-curve .p-power { height: 6rem; }
+.day-curve .gl { stroke: var(--rule); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.day-curve .zero { stroke: var(--muted); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.day-curve .price { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.day-curve .band-dis { fill: color-mix(in srgb, var(--supply) 11%, transparent); }
+.day-curve .band-chg { fill: color-mix(in srgb, var(--return) 11%, transparent); }
+.day-curve .dis { fill: color-mix(in srgb, var(--supply) 82%, transparent); }
+.day-curve .chg { fill: color-mix(in srgb, var(--return) 82%, transparent); }
+.day-curve .key { color: var(--muted); font-weight: 400; }
+.day-curve .key::before { content: ""; display: inline-block; width: .75rem; height: .75rem; border-radius: 2px; vertical-align: -1px; margin-right: .4rem; }
+.day-curve .key.dis::before { background: var(--supply); }
+.day-curve .key.chg::before { background: var(--return); }
+.day-curve .axis { display: flex; justify-content: space-between; font-family: var(--sans); font-size: .7rem; color: var(--muted); margin: .45rem 0 0 3.4rem; font-variant-numeric: tabular-nums; }
+.day-curve figcaption { margin: .9rem 0 0 3.4rem; }
 @keyframes draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @media (prefers-reduced-motion: reduce) { .day-curve svg { animation: none; } }
+@media (max-width: 560px) {
+  .day-curve { padding: 1.1rem 1rem 1rem .5rem; }
+  .day-curve .plot { grid-template-columns: 2.9rem 1fr; }
+  .day-curve .panel-title, .day-curve .axis, .day-curve figcaption { margin-left: 2.9rem; }
+  .day-curve .p-price { height: 6.5rem; }
+  .day-curve .p-power { height: 5rem; }
+}
 
 /* Home: lists ----------------------------------------------------- */
 .interests { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.1rem 2.5rem; }
