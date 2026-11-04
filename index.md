@@ -29,8 +29,7 @@ title: About
       <li><a href="{{ '/resume/' | relative_url }}">Resume</a></li>
     </ul>
   </div>
-  <!-- To add a photo: save it as assets/img/portrait.jpg and uncomment the next line -->
-  <!-- <img class="portrait" src="{{ '/assets/img/portrait.jpg' | relative_url }}" alt="{{ site.author.name }}"> -->
+  <img class="portrait" src="{{ '/assets/img/portrait.jpg' | relative_url }}" alt="Photo of {{ site.author.name }}" width="420" height="420">
 </section>
 
 {% include day-curve.html %}
