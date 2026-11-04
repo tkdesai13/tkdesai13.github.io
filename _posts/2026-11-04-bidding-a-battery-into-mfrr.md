@@ -1,7 +1,7 @@
 ---
 title: "Bidding a battery into the Finnish mFRR market"
 summary: Notes from a side project on how to offer a battery's flexibility as manual frequency restoration reserve without running it empty.
-date: 2026-11-04 18:00:00 +0100
+date: 2026-11-04 10:00:00 +0100
 icon: market
 tags: [batteries, optimisation, electricity markets]
 ---
