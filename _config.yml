@@ -51,6 +51,13 @@ defaults:
     values: { layout: post, math: true }
   - scope: { path: "", type: drafts }
     values: { layout: post, math: true }
+  - scope: { path: "" }               # preview image when any page is shared (LinkedIn, Slack, etc.)
+    values:
+      image:
+        path: /assets/img/social-card.png
+        width: 1200
+        height: 630
+        alt: "Tushar Desai: forecasting, optimisation and state estimation for energy systems"
 
 exclude:
   - README.md
