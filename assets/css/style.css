@@ -241,6 +241,13 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
   .timeline .what { padding-left: 0; }
 }
 
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 2rem 2.75rem; }
+.skill-group h3 { font-size: .98rem; }
+.chips { list-style: none; padding: 0; margin: .75rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li { font-family: var(--sans); font-size: .8rem; line-height: 1.35; padding: .25rem .65rem; border-radius: 999px; background: var(--paper-2); color: var(--ink); }
+.skill-group .plain { margin: .7rem 0 0; padding-left: 1.1rem; font-size: .95rem; }
+.skill-group .plain li { margin-bottom: .25rem; }
+.skill-group .plain li::marker { color: var(--muted); }
 .skills { display: grid; grid-template-columns: 11rem 1fr; gap: .55rem 2rem; margin: 0; max-width: 46rem; }
 .skills dt { font-family: var(--sans); font-weight: 600; font-size: .88rem; padding-top: .15rem; }
 .skills dd { margin: 0; font-size: .96rem; }

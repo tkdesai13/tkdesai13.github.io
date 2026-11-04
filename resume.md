@@ -154,22 +154,32 @@ permalink: /resume/
 </ol>
 
 <h2 id="skills">Skills</h2>
-<dl class="skills">
-  <dt>Programming</dt>
-  <dd>Python (pandas, NumPy, SciPy, scikit-learn, OOP), MATLAB</dd>
-  <dt>Machine learning and statistics</dt>
-  <dd>Regression, classification, clustering, time-series forecasting, model validation, Bayesian inference and filtering, physics-informed ML, TensorFlow</dd>
-  <dt>Optimisation and estimation</dt>
-  <dd>Linear and mixed-integer programming, constrained nonlinear optimisation (CasADi), moving horizon estimation</dd>
-  <dt>Data and compute</dt>
-  <dd>Large time-series datasets, PySpark, SQL, DuckDB, Microsoft Azure</dd>
-  <dt>Engineering practice</dt>
-  <dd>Git, code reviews, Docker, Linux, Jupyter; GitHub Copilot and Claude in daily development</dd>
-  <dt>Visualisation</dt>
-  <dd>Matplotlib, Plotly, QGIS</dd>
-  <dt>Working style</dt>
-  <dd>Checking models against measured data; explaining model results to non-specialists; working across technical and business teams</dd>
-</dl>
+<div class="skill-grid">
+  <section class="skill-group">
+    <div class="entry-head"><span class="tile">{{ site.data.icons.ml }}</span><h3>Machine learning and forecasting</h3></div>
+    <ul class="chips"><li>Time-series forecasting</li><li>Regression</li><li>Classification</li><li>Clustering</li><li>Physics-informed machine learning</li><li>Anomaly detection</li><li>Feature engineering</li><li>Model validation and backtesting</li></ul>
+  </section>
+  <section class="skill-group">
+    <div class="entry-head"><span class="tile">{{ site.data.icons.optim }}</span><h3>Optimisation and estimation</h3></div>
+    <ul class="chips"><li>Linear and mixed-integer programming</li><li>Constrained nonlinear optimisation</li><li>Multi-objective optimisation</li><li>Rolling-horizon scheduling</li><li>Moving horizon estimation</li><li>Kalman and Bayesian filtering</li><li>Bayesian inference</li></ul>
+  </section>
+  <section class="skill-group">
+    <div class="entry-head"><span class="tile">{{ site.data.icons.market }}</span><h3>Energy systems and markets</h3></div>
+    <ul class="chips"><li>Battery modelling</li><li>State of charge and health estimation</li><li>Battery degradation</li><li>Day-ahead and intraday markets</li><li>Balancing markets (FCR, aFRR, mFRR)</li><li>Battery bidding and dispatch</li><li>Digital twins</li></ul>
+  </section>
+  <section class="skill-group">
+    <div class="entry-head"><span class="tile">{{ site.data.icons.code }}</span><h3>Programming and data</h3></div>
+    <ul class="chips"><li>Python (pandas, NumPy, SciPy)</li><li>scikit-learn</li><li>TensorFlow</li><li>CasADi</li><li>MATLAB</li><li>SQL</li><li>DuckDB</li><li>PySpark</li><li>Microsoft Azure</li><li>Matplotlib</li><li>Plotly</li><li>QGIS</li></ul>
+  </section>
+  <section class="skill-group">
+    <div class="entry-head"><span class="tile">{{ site.data.icons.branch }}</span><h3>Engineering practice</h3></div>
+    <ul class="chips"><li>Git</li><li>Code reviews</li><li>Docker</li><li>Linux</li><li>Jupyter</li><li>Jira</li><li>GitHub Copilot</li><li>Claude</li></ul>
+  </section>
+  <section class="skill-group">
+    <div class="entry-head"><span class="tile">{{ site.data.icons.team }}</span><h3>How I work</h3></div>
+    <ul class="plain"><li>Checking models against measured data</li><li>Explaining model results to non-specialists</li><li>Working across technical and business teams</li></ul>
+  </section>
+</div>
 
 <h2 id="languages">Languages</h2>
 <ul class="langs">
