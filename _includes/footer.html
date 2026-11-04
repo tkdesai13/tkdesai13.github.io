@@ -1,11 +1,11 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <span>&copy; {{ 'now' | date: '%Y' }} {{ site.author.name }}</span>
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ site.author.name }}, {{ site.author.location }}</span>
     <span class="links">
-      {% if site.author.email %}<a href="mailto:{{ site.author.email }}">Email</a>{% endif %}
-      {% if site.author.github and site.author.github != 'USERNAME' %}<a href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+      <a href="mailto:{{ site.author.email }}">Email</a>
       {% if site.author.linkedin != '' %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a>{% endif %}
-      {% if site.author.scholar != '' %}<a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">Scholar</a>{% endif %}
+      {% if site.author.scholar != '' %}<a href="https://scholar.google.com/citations?user={{ site.author.scholar }}">Google Scholar</a>{% endif %}
+      <a href="https://github.com/{{ site.author.github }}">GitHub</a>
       <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </span>
   </div>
