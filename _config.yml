@@ -16,6 +16,14 @@ author:
   linkedin: "desaitk"
   scholar: "if1o1dEAAAAJ"            # Google Scholar user id
 
+# Profiles that belong to the same person as this site (read by Google and other search engines)
+social:
+  name: Tushar Desai
+  links:
+    - https://www.linkedin.com/in/desaitk
+    - https://scholar.google.com/citations?user=if1o1dEAAAAJ
+    - https://github.com/tkdesai13
+
 # Navigation (order matters)
 nav:
   - title: About
