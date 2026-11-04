@@ -255,6 +255,20 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 .langs { display: flex; flex-wrap: wrap; gap: .5rem 2rem; list-style: none; padding: 0; }
 .langs span { color: var(--muted); font-family: var(--sans); font-size: .85rem; margin-left: .35rem; }
 
+/* Dated lists: courses, schools, events ------------------------------ */
+.dated-list { list-style: none; padding: 0; margin: 0; }
+.dated-list li { display: grid; grid-template-columns: 7.5rem 1fr; column-gap: 3rem; padding: .55rem 0; border-top: 1px solid var(--rule); }
+.dated-list li:last-child { border-bottom: 1px solid var(--rule); }
+.dated-list .yr { font-family: var(--sans); font-size: .82rem; color: var(--muted); text-align: right; padding-top: .2rem; font-variant-numeric: tabular-nums; }
+.dated-list .note { font-size: .92rem; color: var(--muted); margin: .25rem 0 .1rem; max-width: var(--text); }
+.achievements { padding-left: 1.1rem; max-width: var(--text); }
+.achievements li { margin-bottom: .45rem; }
+.achievements li::marker { color: var(--supply); }
+@media (max-width: 600px) {
+  .dated-list li { grid-template-columns: 1fr; }
+  .dated-list .yr { text-align: left; padding-top: 0; }
+}
+
 /* Code highlighting (rouge) --------------------------------------- */
 .highlight .c, .highlight .c1, .highlight .cm { color: #6a737d; font-style: italic; }
 .highlight .k, .highlight .kd, .highlight .kn, .highlight .kc, .highlight .nb { color: #a23d2f; }

@@ -151,6 +151,33 @@ permalink: /resume/
   </li>
 </ol>
 
+<h2 id="energy-finance">Energy and finance</h2>
+<ul class="dated-list">
+  <li><span class="yr">2025</span><div>E-world energy &amp; water, Essen, Germany</div></li>
+  <li><span class="yr">2025</span><div>Power Price Forecasting Summit, Amsterdam</div></li>
+  <li><span class="yr">2024–2025</span><div>Renewables in Electricity Markets, DTU (Technical University of Denmark)
+    <p class="note">Electricity market fundamentals (supply and demand, merit order, social welfare), and market clearing from optimisation and equilibrium perspectives across day-ahead, intraday and balancing markets.</p></div></li>
+  <li><span class="yr">2024</span><div>Optiver trading course on options theory, TU Delft
+    <p class="note">Algorithm development for trading, and implementation of market-risk and regulatory metrics in a proprietary platform.</p></div></li>
+</ul>
+
+<h2 id="schools">Summer schools and workshops</h2>
+<ul class="dated-list">
+  <li><span class="yr">2023</span><div>Gaussian Process Learning for Systems and Control, IFAC World Congress, Japan</div></li>
+  <li><span class="yr">2023</span><div>Scientific Machine Learning and Dynamical Systems, Autumn School, CWI, Netherlands</div></li>
+  <li><span class="yr">2022</span><div>Sparsity and Big Data in Control, System Identification and Learning, EECI Summer School, France</div></li>
+  <li><span class="yr">2022</span><div>Observer Design Methods for Nonlinear Systems, EECI Summer School, Italy</div></li>
+  <li><span class="yr">2022</span><div>Mathematical Models of Systems, Dutch Institute of Systems and Control, Netherlands</div></li>
+  <li><span class="yr">2022</span><div>Oxford Battery Modelling Symposium, United Kingdom</div></li>
+</ul>
+
+<h2 id="achievements">Achievements</h2>
+<ul class="achievements">
+  <li>Winner of the QuantumScape EIS Challenge (BatteryDEV hackathon, 2022) with team Battmen: models that choose an equivalent circuit model for a given impedance spectrum and predict parameters to initialise the circuit fitting, on a dataset provided by QuantumScape. <a href="https://www.linkedin.com/posts/battery-datascience-machinelearning-share-6914335006173663232-d_H2/">Announcement</a></li>
+  <li>Ranked 46th out of 50,000 candidates in the undergraduate entrance exam.</li>
+  <li>Regular participant in PyData Amsterdam events.</li>
+</ul>
+
 <h2 id="skills">Skills</h2>
 <div class="skill-grid">
   <section class="skill-group">
