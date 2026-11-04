@@ -104,6 +104,8 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
 .cv-entry .dates { grid-column: 2; grid-row: 1; font-family: var(--sans); font-size: .8rem; color: var(--muted); white-space: nowrap; }
 .cv-entry ul { grid-column: 1 / -1; margin: .4rem 0 0; padding-left: 1.1rem; font-size: .95rem; }
 .cv-entry li { margin-bottom: .2rem; }
+.cv-entry .focus { grid-column: 1 / -1; font-style: italic; font-size: .92rem; margin-top: .15rem; }
+.cv-entry .tools { grid-column: 1 / -1; font-family: var(--sans); font-size: .78rem; color: var(--muted); margin-top: .35rem; }
 .skills dt { font-family: var(--sans); font-weight: 600; font-size: .88rem; margin-top: .75rem; }
 .skills dd { margin: 0; font-size: .95rem; }
 .pdf-link { font-family: var(--sans); font-size: .88rem; }

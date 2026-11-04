@@ -3,18 +3,18 @@
 # ---------------------------------------------------------------
 title: Tushar Desai
 description: >-
-  Data scientist working on optimisation and state estimation for energy
-  systems: district heating networks, batteries and electricity markets.
+  Forecasting, optimisation and state estimation for energy systems:
+  district heating networks, batteries and electricity markets.
 url: "https://tkdesai13.github.io"   # replace tkdesai13 with your GitHub username
 baseurl: ""                          # leave empty for a tkdesai13.github.io repo
 
 author:
   name: Tushar Desai
-  email: tkdesai39@gmail.com
+  email: tkdesai13@gmail.com
   location: Almere, the Netherlands
   github: tkdesai13                   # GitHub username
-  linkedin: ""                       # e.g. tushar-desai-123
-  scholar: ""                        # Google Scholar user id, e.g. AbCdEfGhIjK
+  linkedin: "desaitk"
+  scholar: "if1o1dEAAAAJ"            # Google Scholar user id
 
 # Navigation (order matters)
 nav:
