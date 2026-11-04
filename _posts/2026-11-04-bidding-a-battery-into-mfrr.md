@@ -12,11 +12,11 @@ I have been working on this as an independent side project. This post describes 
 
 ## The market in brief
 
-In mFRR the TSO activates reserve when it needs to correct a sustained imbalance. A battery can offer *up* regulation (discharge, which adds energy to the grid) and *down* regulation (charge, which removes energy). Settlement runs on 15-minute periods, which I will call PTUs.
+In mFRR the TSO activates reserve when it needs to correct a sustained imbalance. A battery can offer *up* regulation (discharge, which adds energy to the grid) and *down* regulation (charge, which removes energy). Settlement runs on 15-minute periods, which I will call PTUs.[^ptu]
 
 Two properties of this market shape the strategy:
 
-- **Uniform marginal pricing.** Every activated bid in a period is paid the price of the most expensive activated bid. My bid price therefore decides *whether* I am activated, not *what* I am paid when I am.
+- **Uniform marginal pricing.** Every activated bid in a period is paid the price of the most expensive activated bid. My bid price therefore decides *whether* I am activated, not *what* I am paid when I am.[^pac]
 - **Up and down are never activated in the same period.** In a given PTU the system is either short or long. This limits the worst case the battery has to be prepared for.
 
 ## The battery and its limits
@@ -81,3 +81,6 @@ mFRR is one market out of several. A battery in the Nordic and Central European 
 The next version of the model offers into five or six of these markets simultaneously, so that a megawatt committed in one is not offered again in another. Two features matter here. The first is block bids that span four to six periods, which match how the battery's energy limits actually bind. The second is retrading. If the battery has sold energy for a later period and a higher price appears for an earlier one, it can deliver in the earlier period and buy back in the intraday market to cover the original commitment. Doing this well needs price forecasts, which is the other open piece of work.
 
 I will write up the backtest against historical Finnish prices and activations once the activation model is in place.
+
+[^ptu]: PTU stands for programme time unit. Nordic market documents usually call the same 15 minutes the imbalance settlement period (ISP).
+[^pac]: This is also called pay-as-cleared pricing. The alternative, pay-as-bid, pays each activated bid its own price.

@@ -21,3 +21,31 @@ layout: default
     </p>
   </footer>
 </article>
+<script>
+  // Show Markdown footnotes as notes in the margin (or below the paragraph on narrow screens).
+  (function () {
+    var body = document.querySelector('.post-body');
+    if (!body) return;
+    var refs = [].slice.call(body.querySelectorAll('a.footnote[href^="#fn"], a.footnote-ref[href^="#fn"]'));
+    if (!refs.length) return;
+    var wide = window.matchMedia('(min-width: 62rem)'), list = null;
+    var notes = refs.map(function (a) {
+      var item = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+      if (!item) return null;
+      list = item.closest('.footnotes, .footnote');
+      var note = document.createElement('aside');
+      note.className = 'sidenote';
+      note.innerHTML = '<span class="num">' + a.textContent + '</span>' + item.innerHTML;
+      return { note: note, block: a.closest('p, li, blockquote, td') || a.parentNode };
+    }).filter(Boolean);
+    function place() {
+      notes.forEach(function (n) {
+        if (n.block.tagName === 'LI') n.block.appendChild(n.note);
+        else n.block.parentNode.insertBefore(n.note, wide.matches ? n.block : n.block.nextSibling);
+      });
+    }
+    place();
+    if (list) list.hidden = true;
+    if (wide.addEventListener) wide.addEventListener('change', place);
+  })();
+</script>

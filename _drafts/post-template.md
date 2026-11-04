@@ -22,3 +22,8 @@ Figures: put images in `assets/img/` and use
 *Figure 1. Caption text.*
 
 References can be plain links or numbered notes, e.g. Rawlings et al. (2017), *Model Predictive Control: Theory, Computation, and Design*.
+
+Margin notes: put [^1] after a word, and the note text anywhere below, like the line at the end of this file.
+They appear in the right margin on wide screens and under the paragraph on phones.
+
+[^1]: This is a margin note.

@@ -21,8 +21,22 @@
   --page: 52rem;
   --text: 40rem;
 }
+:root { color-scheme: light; }
+/* Dark colours: chosen with the header switch, or taken from the system setting when no choice is stored */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #12161c;
+  --paper-2: #1a2028;
+  --ink: #e6e9ed;
+  --muted: #9aa4b1;
+  --rule: #2a313b;
+  --supply: #f07167;
+  --return: #82aee6;
+  --code-bg: #1a2028;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
+    color-scheme: dark;
     --paper: #12161c;
     --paper-2: #1a2028;
     --ink: #e6e9ed;
@@ -316,17 +330,44 @@ html { scroll-behavior: smooth; }
   .dated-list .yr { text-align: left; padding-top: 0; }
 }
 
+/* Light/dark switch in the header ---------------------------------- */
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; margin-left: .4rem; padding: 0; border: 1px solid var(--rule); border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--ink); border-color: var(--muted); }
+.theme-toggle svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.theme-toggle .sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .moon { display: none; }
+.site-nav { align-items: center; }
+
+/* Margin notes in posts (built from Markdown footnotes) ------------ */
+.post-body sup a.footnote, .post-body sup a.footnote-ref { text-decoration: none; font-family: var(--sans); font-size: .75em; padding: 0 .1em; }
+.sidenote { display: block; font-family: var(--sans); font-size: .8rem; line-height: 1.5; color: var(--muted); }
+.sidenote .num { color: var(--supply); font-weight: 600; margin-right: .35rem; }
+.sidenote p { margin: 0; display: inline; }
+.sidenote .reversefootnote, .sidenote .footnote-backref { display: none; }
+@media (min-width: 62rem) {
+  .sidenote { float: right; clear: right; width: 11rem; margin: .3rem -12.75rem 1rem 0; }
+}
+@media (max-width: 61.99rem) {
+  .sidenote { margin: -.4rem 0 1.1rem; padding: .5rem .75rem; border-left: 2px solid var(--rule); background: var(--paper-2); border-radius: 0 6px 6px 0; }
+}
+.footnotes { font-size: .9rem; color: var(--muted); border-top: 1px solid var(--rule); margin-top: 2.5rem; padding-top: 1rem; }
+
 /* Code highlighting (rouge) --------------------------------------- */
 .highlight .c, .highlight .c1, .highlight .cm { color: #6a737d; font-style: italic; }
 .highlight .k, .highlight .kd, .highlight .kn, .highlight .kc, .highlight .nb { color: #a23d2f; }
 .highlight .s, .highlight .s1, .highlight .s2 { color: #2f7a3b; }
 .highlight .mi, .highlight .mf { color: #2e5c9a; }
 .highlight .nf, .highlight .nc { color: #6f42c1; }
+:root[data-theme="dark"] .highlight .k, :root[data-theme="dark"] .highlight .kd, :root[data-theme="dark"] .highlight .kn, :root[data-theme="dark"] .highlight .kc, :root[data-theme="dark"] .highlight .nb { color: #f39a90; }
+:root[data-theme="dark"] .highlight .s, :root[data-theme="dark"] .highlight .s1, :root[data-theme="dark"] .highlight .s2 { color: #8fd19e; }
+:root[data-theme="dark"] .highlight .mi, :root[data-theme="dark"] .highlight .mf { color: #82aee6; }
+:root[data-theme="dark"] .highlight .nf, :root[data-theme="dark"] .highlight .nc { color: #c5a5f5; }
 @media (prefers-color-scheme: dark) {
-  .highlight .k, .highlight .kd, .highlight .kn, .highlight .kc, .highlight .nb { color: #f39a90; }
-  .highlight .s, .highlight .s1, .highlight .s2 { color: #8fd19e; }
-  .highlight .mi, .highlight .mf { color: #82aee6; }
-  .highlight .nf, .highlight .nc { color: #c5a5f5; }
+  :root:not([data-theme]) .highlight .k, :root:not([data-theme]) .highlight .kd, :root:not([data-theme]) .highlight .kn, :root:not([data-theme]) .highlight .kc, :root:not([data-theme]) .highlight .nb { color: #f39a90; }
+  :root:not([data-theme]) .highlight .s, :root:not([data-theme]) .highlight .s1, :root:not([data-theme]) .highlight .s2 { color: #8fd19e; }
+  :root:not([data-theme]) .highlight .mi, :root:not([data-theme]) .highlight .mf { color: #82aee6; }
+  :root:not([data-theme]) .highlight .nf, :root:not([data-theme]) .highlight .nc { color: #c5a5f5; }
 }
 
 @media print {
