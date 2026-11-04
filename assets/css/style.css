@@ -161,6 +161,13 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 .post-footer p { display: flex; justify-content: space-between; gap: 1rem; }
 .post-footer .next { margin-left: auto; text-align: right; }
 
+/* Diagrams in posts ---------------------------------------------- */
+.ptu-strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 1.75rem 0; font-family: var(--sans); font-size: .74rem; text-align: center; }
+.ptu-strip span { padding: .7rem .2rem; border-radius: 4px; line-height: 1.25; display: flex; align-items: center; justify-content: center; }
+.ptu-strip .bid { background: color-mix(in srgb, var(--return) 16%, var(--paper)); color: var(--ink); }
+.ptu-strip .manage { background: color-mix(in srgb, var(--supply) 18%, var(--paper)); color: var(--ink); font-weight: 500; }
+@media (max-width: 480px) { .ptu-strip { font-size: .62rem; } }
+
 /* Resume ---------------------------------------------------------- */
 .cv-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem 2rem; }
 .cv-head h1 { margin: 0; }
