@@ -10,8 +10,8 @@ title: About
       <p>
         I build forecasting and optimisation models for energy systems and take them from
         first analysis to use in operations. At <a href="https://www.gradyent.ai">Gradyent</a>
-        in Rotterdam I forecast heat demand from smart heat meter data and use the forecasts to
-        schedule boilers, heat pumps and thermal storage in district heating networks.
+        in Rotterdam I work on demand forecasting and on optimisation models that schedule
+        energy assets against electricity prices.
       </p>
       <p>
         Before that I did my PhD at TU Delft with Dr. Riccardo Ferrari on machine learning and
@@ -37,10 +37,10 @@ title: About
 
 <h2>Interests</h2>
 <ul class="interests">
-  <li>Time-series forecasting of energy demand and battery behaviour</li>
-  <li>Physics-informed machine learning and state estimation</li>
-  <li>Dispatch and bidding optimisation for batteries, heat pumps and thermal storage</li>
-  <li>Electricity markets: day-ahead, intraday and balancing</li>
+  <li><span class="tile">{{ site.data.icons.forecast }}</span><span>Time-series forecasting of energy demand and battery behaviour</span></li>
+  <li><span class="tile">{{ site.data.icons.battery }}</span><span>Physics-informed machine learning and state estimation for batteries</span></li>
+  <li><span class="tile">{{ site.data.icons.grid }}</span><span>Rolling-horizon optimisation for scheduling flexible assets on the power grid</span></li>
+  <li><span class="tile">{{ site.data.icons.market }}</span><span>Battery bidding in day-ahead, intraday and balancing markets</span></li>
 </ul>
 
 <h2>Selected publications</h2>
@@ -50,9 +50,14 @@ title: About
 <h2>Writing</h2>
 <ul class="post-list">
 {% for post in site.posts limit: 5 %}
+  {% assign ic = post.icon | default: "forecast" %}
   <li>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
-    <span><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.summary %}<span class="summary">{{ post.summary }}</span>{% endif %}</span>
+    <span class="tile">{{ site.data.icons[ic] }}</span>
+    <span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {% if post.summary %}<span class="summary">{{ post.summary }}</span>{% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+    </span>
   </li>
 {% else %}
   <li><span class="empty">No posts yet.</span></li>

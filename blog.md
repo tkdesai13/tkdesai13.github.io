@@ -14,11 +14,13 @@ Subscribe via [RSS]({{ '/feed.xml' | relative_url }}).
 <h2 class="year-heading">{{ year.name }}</h2>
 <ul class="post-list">
   {% for post in year.items %}
+  {% assign ic = post.icon | default: "forecast" %}
   <li>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b" }}</time>
+    <span class="tile">{{ site.data.icons[ic] }}</span>
     <span>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       {% if post.summary %}<span class="summary">{{ post.summary }}</span>{% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
     </span>
   </li>
   {% endfor %}
