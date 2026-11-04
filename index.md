@@ -38,7 +38,7 @@ title: About
 <h2>Interests</h2>
 <ul class="interests">
   <li><span class="tile">{{ site.data.icons.forecast }}</span><span>Time-series forecasting of energy demand and battery behaviour</span></li>
-  <li><span class="tile">{{ site.data.icons.battery }}</span><span>Physics-informed machine learning and state estimation for batteries</span></li>
+  <li><span class="tile">{{ site.data.icons.pinn }}</span><span>Physics-informed machine learning and state estimation for batteries</span></li>
   <li><span class="tile">{{ site.data.icons.grid }}</span><span>Rolling-horizon optimisation for scheduling flexible assets on the power grid</span></li>
   <li><span class="tile">{{ site.data.icons.market }}</span><span>Battery bidding in day-ahead, intraday and balancing markets</span></li>
 </ul>

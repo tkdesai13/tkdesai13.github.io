@@ -169,9 +169,16 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 .icon .rf { fill: var(--return); }
 .icon .rf.dim { fill: color-mix(in srgb, var(--return) 32%, var(--paper-2)); }
 .icon .inkf { fill: var(--ink); }
+.icon .sf { fill: var(--supply); }
+.icon .glyph { fill: var(--supply); font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 21px; }
+.icon .edge { stroke: var(--muted); stroke-width: 1.5; opacity: .75; }
 .icon .band { fill: color-mix(in srgb, var(--return) 20%, transparent); }
 .icon .dash { stroke-dasharray: 3 3; }
+.icon .tilefill { fill: var(--paper-2); }
 .icon .faint { stroke: var(--muted); stroke-width: 1.4; stroke-dasharray: 1.5 2.5; }
+
+.entry-head { display: flex; align-items: center; gap: .9rem; }
+.entry-head .tile { width: 2.9rem; height: 2.9rem; padding: .35rem; border-radius: 8px; }
 
 /* Diagrams in posts ---------------------------------------------- */
 .ptu-strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 1.75rem 0; font-family: var(--sans); font-size: .74rem; text-align: center; }

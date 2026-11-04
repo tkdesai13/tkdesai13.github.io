@@ -24,10 +24,13 @@ permalink: /resume/
 <h2 id="experience">Experience</h2>
 <ol class="timeline">
   <li class="current">
-    <div class="when">Aug 2025 –<br>present</div>
+    <div class="when">Aug 2025 –<br> present</div>
     <div class="what">
-      <h3>Solutions Engineer</h3>
-      <p class="where">Gradyent, Rotterdam</p>
+      <div class="entry-head">
+        <span class="tile">{{ site.data.icons.heat }}</span>
+        <div><h3>Solutions Engineer</h3>
+        <p class="where">Gradyent, Rotterdam</p></div>
+      </div>
       <p class="focus">Digital twin development and energy system optimisation</p>
       <ul>
         <li>Build heat demand forecasts from smart heat meter data and use them as input to dispatch optimisation that schedules boilers, heat pumps and thermal storage against day-ahead prices.</li>
@@ -39,10 +42,13 @@ permalink: /resume/
     </div>
   </li>
   <li>
-    <div class="when">Mar 2021 –<br>May 2025</div>
+    <div class="when">Mar 2021 –<br> May 2025</div>
     <div class="what">
-      <h3>PhD Candidate</h3>
-      <p class="where">TU Delft, Delft</p>
+      <div class="entry-head">
+        <span class="tile">{{ site.data.icons.pinn }}</span>
+        <div><h3>PhD Candidate</h3>
+        <p class="where">TU Delft, Delft</p></div>
+      </div>
       <p class="focus">Machine learning and forecasting models for batteries</p>
       <ul>
         <li>Developed a load forecasting model from temporal usage patterns; trained and compared several regression approaches on out-of-sample error to choose the one suited to the application.</li>
@@ -54,10 +60,13 @@ permalink: /resume/
     </div>
   </li>
   <li>
-    <div class="when">Dec 2019 –<br>Jul 2020</div>
+    <div class="when">Dec 2019 –<br> Jul 2020</div>
     <div class="what">
-      <h3>Master Thesis</h3>
-      <p class="where">Bertrandt Ingenieurbüro GmbH, Neckarsulm</p>
+      <div class="entry-head">
+        <span class="tile">{{ site.data.icons.ml }}</span>
+        <div><h3>Master Thesis</h3>
+        <p class="where">Bertrandt Ingenieurbüro GmbH, Neckarsulm</p></div>
+      </div>
       <p class="focus">Machine learning model for emission forecasting</p>
       <ul>
         <li>Developed time-series regression models to predict ammonia and NOx emissions in automotive after-treatment systems, with prediction errors within ±5%.</li>
@@ -67,10 +76,13 @@ permalink: /resume/
     </div>
   </li>
   <li>
-    <div class="when">Apr 2019 –<br>Nov 2019</div>
+    <div class="when">Apr 2019 –<br> Nov 2019</div>
     <div class="what">
-      <h3>Student Assistant</h3>
-      <p class="where">Bertrandt Ingenieurbüro GmbH, Neckarsulm</p>
+      <div class="entry-head">
+        <span class="tile">{{ site.data.icons.anomaly }}</span>
+        <div><h3>Student Assistant</h3>
+        <p class="where">Bertrandt Ingenieurbüro GmbH, Neckarsulm</p></div>
+      </div>
       <p class="focus">Feature engineering and anomaly detection</p>
       <ul>
         <li>Implemented feature selection with multivariate statistics and clustering, reducing data dimensionality by 50% while keeping 95% of the variance, and helped integrate the models into production software.</li>
@@ -124,10 +136,13 @@ permalink: /resume/
 <h2 id="projects">Projects</h2>
 <ol class="timeline">
   <li class="current">
-    <div class="when">2025 –<br>present</div>
+    <div class="when">2025 –<br> present</div>
     <div class="what">
-      <h3>Battery storage bidding and dispatch optimiser</h3>
-      <p class="where">Independent project, work in progress</p>
+      <div class="entry-head">
+        <span class="tile">{{ site.data.icons.market }}</span>
+        <div><h3>Battery storage bidding and dispatch optimiser</h3>
+        <p class="where">Independent project, work in progress</p></div>
+      </div>
       <ul>
         <li>An optimiser that bids and dispatches a battery across day-ahead, intraday and balancing markets, subject to state-of-charge limits, degradation costs and committed delivery obligations.</li>
         <li><strong>Built so far:</strong> a rolling-horizon dispatch model on 15-minute settlement periods, tested against historical price and activation data from the Finnish mFRR market.</li>
