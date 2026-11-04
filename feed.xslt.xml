@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Makes /feed.xml readable when opened directly in a browser. Feed readers ignore this file. -->
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  exclude-result-prefixes="atom">
+  <xsl:output method="html" encoding="UTF-8" indent="yes"/>
+  <xsl:template match="/atom:feed">
+    <html lang="en">
+      <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="color-scheme" content="light dark"/>
+        <title>RSS feed: <xsl:value-of select="atom:title"/></title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="/assets/css/style.css"/>
+      </head>
+      <body>
+        <header class="site-header">
+          <div class="wrap header-inner">
+            <a class="site-title" href="/"><xsl:value-of select="atom:author/atom:name"/></a>
+            <nav class="site-nav"><a href="/">About</a><a href="/resume/">Resume</a><a href="/blog/" class="current">Blog</a></nav>
+          </div>
+        </header>
+        <main class="wrap content">
+          <h1>RSS feed</h1>
+          <div class="prose">
+            <p>This page is the RSS feed of the blog. To get new posts automatically, copy this page's address
+              (<code><xsl:value-of select="atom:link[@rel='self']/@href"/></code>)
+              into a feed reader such as Feedly, Inoreader or NetNewsWire.</p>
+          </div>
+          <h2>Latest posts</h2>
+          <ul class="post-list">
+            <xsl:for-each select="atom:entry">
+              <li style="grid-template-columns: 7.5rem 1fr">
+                <time><xsl:value-of select="substring(atom:published, 1, 10)"/></time>
+                <span>
+                  <a href="{atom:link/@href}"><xsl:value-of select="atom:title"/></a>
+                </span>
+              </li>
+            </xsl:for-each>
+          </ul>
+          <p class="more" style="margin-top:1.25rem"><a href="/blog/">Back to the blog</a></p>
+        </main>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

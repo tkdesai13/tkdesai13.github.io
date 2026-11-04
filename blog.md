@@ -7,7 +7,7 @@ permalink: /blog/
 # Blog
 
 Notes on modelling, estimation, optimisation and energy markets.
-Subscribe via [RSS]({{ '/feed.xml' | relative_url }}).
+New posts are also published as an [RSS feed]({{ '/feed.xml' | relative_url }}) for feed readers.
 
 {% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
 {% for year in by_year %}

@@ -43,6 +43,7 @@ plugins:
 
 feed:
   path: /feed.xml
+  xsl: true            # styles the feed when opened in a browser (feed.xslt.xml)
 
 # Every post gets the post layout and MathJax unless it says otherwise.
 defaults:
