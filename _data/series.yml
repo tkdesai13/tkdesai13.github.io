@@ -1,0 +1,33 @@
+# Blog series. A post joins a series with front matter:  series: bess-nl  and  part: <n>
+# Parts listed here without a published post show as "Planned" on the series page.
+bess-nl:
+  title: "Trading a battery in the Dutch electricity markets"
+  url: /series/battery-trading-nl/
+  parts:
+    - part: 1
+      title: "The markets a battery can trade in"
+      question: "Who does what, when bids are due, and how each market pays."
+    - part: 2
+      title: "Day-ahead arbitrage: the baseline"
+      question: "What the simplest strategy earns, and what power and energy are each worth."
+    - part: 3
+      title: "Imbalance: is it worth deviating from the schedule?"
+      question: "The value of the imbalance market, from a perfect-foresight ceiling and a persistence floor."
+    - part: 4
+      title: "Frequency reserves: FCR, aFRR and mFRR"
+      question: "How capacity payments and activation change the trade-off."
+    - part: 5
+      title: "Intraday: re-trading the day-ahead position"
+      question: "What the intraday auctions add on top of day-ahead."
+    - part: 6
+      title: "Stacking: one battery, several markets"
+      question: "How to bid when decisions are made in sequence, from the FCR auction to real time."
+    - part: 7
+      title: "The perfect-foresight problem"
+      question: "How much of each result survives realistic information."
+    - part: 8
+      title: "Forecasting prices and regulation states"
+      question: "Forecasts of day-ahead prices and imbalance states, with uncertainty."
+    - part: 9
+      title: "Closing the loop"
+      question: "The stacking strategy re-run with forecasts instead of hindsight."

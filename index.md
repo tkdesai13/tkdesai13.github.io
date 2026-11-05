@@ -62,7 +62,7 @@ title: About
     <span>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       {% if post.summary %}<span class="summary">{{ post.summary }}</span>{% endif %}
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+      <span class="pl-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>{% if post.series %}<span class="pl-part">Series, part {{ post.part }}</span>{% endif %}</span>
     </span>
   </li>
 {% else %}

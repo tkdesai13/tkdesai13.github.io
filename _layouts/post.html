@@ -4,6 +4,7 @@ layout: default
 <article class="post">
   <header class="post-header">
     {% if page.icon %}<span class="tile tile-lg">{{ site.data.icons[page.icon] }}</span>{% endif %}
+    {% if page.series %}{% assign series = site.data.series[page.series] %}<p class="series-label"><a href="{{ series.url | relative_url }}">{{ series.title }}</a>, part {{ page.part }} of {{ series.parts.size }}</p>{% endif %}
     <h1>{{ page.title }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>,
@@ -15,10 +16,24 @@ layout: default
     {{ content }}
   </div>
   <footer class="post-footer">
+    {% if page.series %}
+      {% assign series = site.data.series[page.series] %}
+      {% assign prev_n = page.part | minus: 1 %}{% assign next_n = page.part | plus: 1 %}
+      {% assign prev_post = site.posts | where: "series", page.series | where: "part", prev_n | first %}
+      {% assign next_post = site.posts | where: "series", page.series | where: "part", next_n | first %}
+      {% assign next_plan = series.parts | where: "part", next_n | first %}
+      <p class="series-nav">
+        {% if prev_post %}<a href="{{ prev_post.url | relative_url }}"><span class="dir">Previous, part {{ prev_n }}</span>{{ prev_post.title }}</a>{% endif %}
+        {% if next_post %}<a class="next" href="{{ next_post.url | relative_url }}"><span class="dir">Next, part {{ next_n }}</span>{{ next_post.title }}</a>
+        {% elsif next_plan %}<span class="next upcoming"><span class="dir">Coming next, part {{ next_n }}</span>{{ next_plan.title }}</span>{% endif %}
+      </p>
+      <p class="series-all"><a href="{{ series.url | relative_url }}">All parts of the series</a></p>
+    {% else %}
     <p>
       {% if page.previous %}<a href="{{ page.previous.url | relative_url }}">&larr; {{ page.previous.title }}</a>{% endif %}
       {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} &rarr;</a>{% endif %}
     </p>
+    {% endif %}
   </footer>
 </article>
 <script>

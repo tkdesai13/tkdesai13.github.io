@@ -1,0 +1,16 @@
+{% comment %} Usage: {% include series-list.html id="bess-nl" %} {% endcomment %}
+{% assign s = site.data.series[include.id] %}
+<ol class="series-list">
+{% for p in s.parts %}
+  {% assign hits = site.posts | where: "series", include.id | where: "part", p.part %}
+  {% assign hit = hits | first %}
+  <li class="{% if hit %}is-published{% else %}is-planned{% endif %}{% if hit and hit.url == page.url %} is-current{% endif %}">
+    <span class="sl-num">{{ p.part }}</span>
+    <span class="sl-body">
+      {% if hit %}<a href="{{ hit.url | relative_url }}">{{ p.title }}</a>{% else %}<span class="sl-title">{{ p.title }}</span>{% endif %}
+      <span class="sl-q">{{ p.question }}</span>
+    </span>
+    <span class="sl-status">{% if hit %}{{ hit.date | date: "%-d %b %Y" }}{% else %}Planned{% endif %}</span>
+  </li>
+{% endfor %}
+</ol>
