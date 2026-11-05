@@ -44,22 +44,13 @@ A battery sells two physical things, power (MW) and energy (MWh), and the market
 
 The difference between the first two and the last two matters. In day-ahead and intraday the battery chooses what it delivers. In the reserve markets it sells the right for TenneT to decide, within limits. In the imbalance market nobody decides anything in advance: the battery deviates from its plan and accepts a price that is only known afterwards.
 
-## One delivery day, in order
+## When each market opens and closes
 
-<ol class="daymap" aria-label="Timeline of market deadlines for one delivery day">
-<li class="cap"><span class="when">D-1 08:00</span><span class="what"><b>FCR auction closes</b><span>Frequency containment reserve, bought jointly by several European system operators in six 4-hour blocks.</span></span></li>
-<li class="cap"><span class="when">D-1 09:00</span><span class="what"><b>aFRR capacity auction closes</b><span>TenneT's daily auction for automatic frequency restoration reserve. TenneT also contracts emergency reserve (mFRRda) a day ahead.</span></span></li>
-<li class="energy"><span class="when">D-1 12:00</span><span class="what"><b>Day-ahead auction closes</b><span>One auction for all of Europe. Products are 15 minutes long since 1 October 2025.</span></span></li>
-<li class="energy"><span class="when">D-1 15:00<br>D-1 22:00</span><span class="what"><b>Intraday auctions 1 and 2</b><span>Each covers all of the delivery day; results follow about 20 minutes later.</span></span></li>
-<li class="energy"><span class="when">D 10:00</span><span class="what"><b>Intraday auction 3</b><span>Covers 12:00 to 24:00 of the delivery day.</span></span></li>
-<li class="energy"><span class="when">Until shortly before delivery</span><span class="what"><b>Continuous intraday trading</b><span>Open from the afternoon of D-1, paused around each intraday auction.</span></span></li>
-<li class="rt"><span class="when">About 25 min before</span><span class="what"><b>Balancing energy bids close</b><span>Offers to be activated for aFRR and mFRR in the coming quarter-hour.</span></span></li>
-<li class="rt"><span class="when">During the quarter-hour</span><span class="what"><b>Reserves respond</b><span>FCR follows the grid frequency automatically; TenneT activates aFRR and mFRR as needed.</span></span></li>
-<li class="rt"><span class="when">After the quarter-hour</span><span class="what"><b>Imbalance is settled</b><span>TenneT publishes the imbalance price, and every deviation from the reported plan is settled at it.</span></span></li>
-</ol>
-<p class="daymap-key"><span><i style="background:var(--return)"></i>Capacity: being available</span><span><i style="background:var(--ink)"></i>Energy: buying and selling MWh</span><span><i style="background:var(--supply)"></i>Real time</span></p>
+Every market sells the same delivery day, but they close at different times. The chart follows one delivery day, D, from the morning before. Each row shows when bids are accepted, when the gate closes, when results come out, and when the battery has to deliver.
 
-Times are Amsterdam local time.[^times] The order matters more than the exact times. The capacity auctions close before the day-ahead prices are known, so a battery has to decide how much of itself to reserve before it knows what that capacity could have earned in arbitrage. Every later step can only adjust what is left. That sequence is the core of the stacking problem in Part 6.
+{% include market-gates.html %}
+
+The order matters more than the exact times.[^times] The capacity auctions close before the day-ahead prices are known, so a battery has to decide how much of itself to reserve before it knows what that capacity could have earned in arbitrage. Every later step can only adjust what is left. That sequence is the core of the stacking problem in Part 6.
 
 ## What each market takes from the battery
 

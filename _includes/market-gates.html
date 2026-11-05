@@ -1,0 +1,128 @@
+{% comment %} Timeline of market gates for one delivery day. Generated; positions are % of D-1 06:00 to D 24:00. {% endcomment %}
+<div class="gates-wrap">
+<figure class="gates" style="--da:16.27%" aria-label="Chart: when each market closes for bids and when it delivers, from 06:00 on the day before delivery to the end of the delivery day. The capacity auctions close at 08:00 and 09:00, the day-ahead auction at 12:00, intraday auctions at 15:00 and 22:00 on the day before and 10:00 on the delivery day. Continuous intraday trading, balancing energy bids and imbalance settlement run quarter-hour by quarter-hour on the delivery day.">
+<div class="g-scroll"><div class="g-inner">
+<div class="g-days"><span class="g-lab"></span><span class="g-axis"><span class="g-day" style="left:0;width:42.857%">D-1, the day before</span><span class="g-day g-day-d" style="left:42.857%;width:57.143%">D, delivery day</span></span></div>
+<div class="g-body">
+<div class="g-overlay" aria-hidden="true"><span class="g-dzone" style="left:42.857%"></span><span class="g-daline" style="left:16.27%"><span>Day-ahead prices known</span></span><span class="g-cross"><span class="g-time"></span></span></div>
+<div class="g-group g-cap"><span class="g-lab"><i class="g-sw"></i>Capacity reserves<span class="g-gsub">Paid for being available</span></span><span class="g-axis"></span></div>
+<div class="g-row g-cap" tabindex="0" data-kind="auction" data-close="8" data-from="24" data-to="48" data-tip="Frequency containment reserve, bought by several European system operators in one joint auction. Bids open D-7 and close at 08:00 on D-1. The battery must then be available in both directions, in six 4-hour blocks.">
+<span class="g-lab"><b>FCR capacity</b><span>closes D-1 08:00</span></span>
+<span class="g-track"><i class="m-bid" style="left:0.0%;width:4.762%"></i><i class="m-del" style="left:42.857%;width:9.524000000000001%"></i><i class="m-del" style="left:52.381%;width:9.524000000000001%"></i><i class="m-del" style="left:61.905%;width:9.524000000000001%"></i><i class="m-del" style="left:71.429%;width:9.522999999999996%"></i><i class="m-del" style="left:80.952%;width:9.524000000000001%"></i><i class="m-del" style="left:90.476%;width:9.524000000000001%"></i><i class="m-gate" style="left:4.762%"></i></span>
+</div>
+<div class="g-row g-cap" tabindex="0" data-kind="auction" data-close="9" data-from="24" data-to="48" data-tip="TenneT's daily auction for automatic frequency restoration reserve, upward and downward separately, closing at 09:00 on D-1. TenneT also contracts emergency reserve (mFRRda) a day ahead.">
+<span class="g-lab"><b>aFRR capacity</b><span>closes D-1 09:00</span></span>
+<span class="g-track"><i class="m-bid" style="left:0.0%;width:7.143%"></i><i class="m-del" style="left:42.857%;width:57.143%"></i><i class="m-gate" style="left:7.143%"></i></span>
+</div>
+<div class="g-group g-da"><span class="g-lab"><i class="g-sw"></i>Day-ahead<span class="g-gsub">Energy for each quarter-hour</span></span><span class="g-axis"></span></div>
+<div class="g-row g-da" tabindex="0" data-kind="auction" data-close="12" data-result="12.833" data-from="24" data-to="48" data-tip="One auction for all of Europe. Bids close at 12:00 on D-1, and prices for all 96 quarter-hours of day D follow at about 12:45 to 13:00.">
+<span class="g-lab"><b>Day-ahead auction</b><span>closes D-1 12:00</span></span>
+<span class="g-track"><i class="m-bid" style="left:2.381%;width:11.905%"></i><i class="m-del" style="left:42.857%;width:57.143%"></i><i class="m-gate" style="left:14.286%"></i><i class="m-res" style="left:16.27%"></i></span>
+</div>
+<div class="g-group g-id"><span class="g-lab"><i class="g-sw"></i>Intraday<span class="g-gsub">Changes to the energy position</span></span><span class="g-axis"></span></div>
+<div class="g-row g-id" tabindex="0" data-kind="auction" data-close="15" data-result="15.333" data-from="24" data-to="48" data-tip="Covers all of day D. Bids close at 15:00 on D-1; results follow about 20 minutes later.">
+<span class="g-lab"><b>Intraday auction 1</b><span>closes D-1 15:00</span></span>
+<span class="g-track"><i class="m-bid" style="left:16.667%;width:4.761999999999997%"></i><i class="m-del" style="left:42.857%;width:57.143%"></i><i class="m-gate" style="left:21.429%"></i><i class="m-res" style="left:22.222%"></i></span>
+</div>
+<div class="g-row g-id" tabindex="0" data-kind="auction" data-close="22" data-result="22.333" data-from="24" data-to="48" data-tip="Covers all of day D. Bids close at 22:00 on D-1; results follow about 20 minutes later.">
+<span class="g-lab"><b>Intraday auction 2</b><span>closes D-1 22:00</span></span>
+<span class="g-track"><i class="m-bid" style="left:28.571%;width:9.523999999999997%"></i><i class="m-del" style="left:42.857%;width:57.143%"></i><i class="m-gate" style="left:38.095%"></i><i class="m-res" style="left:38.889%"></i></span>
+</div>
+<div class="g-row g-id" tabindex="0" data-kind="auction" data-close="34" data-result="34.333" data-from="36" data-to="48" data-tip="Covers 12:00 to 24:00 of day D. Bids close at 10:00 on D; results follow about 20 minutes later.">
+<span class="g-lab"><b>Intraday auction 3</b><span>closes D 10:00</span></span>
+<span class="g-track"><i class="m-bid" style="left:57.143%;width:9.524000000000001%"></i><i class="m-del" style="left:71.429%;width:28.570999999999998%"></i><i class="m-gate" style="left:66.667%"></i><i class="m-res" style="left:67.46%"></i></span>
+</div>
+<div class="g-row g-id" tabindex="0" data-kind="continuous" data-open="14" data-tip="Trading opens in the afternoon of D-1 and pauses around each intraday auction. A quarter-hour can be traded within the Netherlands until it starts, and across borders until 60 minutes before.">
+<span class="g-lab"><b>Continuous intraday</b><span>until each quarter-hour starts</span></span>
+<span class="g-track"><i class="m-bid" style="left:19.048%;width:3.5710000000000015%"></i><i class="m-open" style="left:22.619%;width:14.881%"></i><i class="m-open" style="left:38.69%;width:4.167000000000002%"></i><i class="m-roll" style="left:42.857%;width:23.214%"></i><i class="m-roll" style="left:67.262%;width:32.738%"></i></span>
+</div>
+<div class="g-group g-rt"><span class="g-lab"><i class="g-sw"></i>Real time<span class="g-gsub">Balancing the grid</span></span><span class="g-axis"></span></div>
+<div class="g-row g-rt" tabindex="0" data-kind="rolling" data-tip="Offers to TenneT to be activated for aFRR and mFRR. Bids for each quarter-hour close 25 minutes before it starts. Contracted aFRR capacity must be offered here; other prequalified units can add free bids.">
+<span class="g-lab"><b>Balancing energy bids</b><span>25 min before each quarter-hour</span></span>
+<span class="g-track"><i class="m-roll" style="left:42.857%;width:57.143%"></i></span>
+</div>
+<div class="g-row g-rt" tabindex="0" data-kind="settle" data-from="24" data-to="48" data-tip="Nothing is bid. Every deviation from the reported plan is settled at TenneT's imbalance price, which is known only after each quarter-hour has ended.">
+<span class="g-lab"><b>Imbalance</b><span>settled after each quarter-hour</span></span>
+<span class="g-track"><i class="m-del m-settle" style="left:42.857%;width:57.143%"></i></span>
+</div>
+</div>
+<div class="g-ticks"><span class="g-lab"></span><span class="g-axis"><span style="left:0.0%">06:00</span><span style="left:14.286%">12:00</span><span style="left:28.571%">18:00</span><span style="left:42.857%">00:00</span><span style="left:57.143%">06:00</span><span style="left:71.429%">12:00</span><span style="left:85.714%">18:00</span><span style="left:100.0%">00:00</span></span></div>
+</div></div>
+<div class="g-tip" role="status" hidden></div>
+<div class="g-legend"><span><i class="k-bid"></i>Bids accepted</span><span><i class="k-gate"></i>Gate closes</span><span><i class="k-res"></i>Results published</span><span><i class="k-del"></i>Delivery: the battery is committed</span><span><i class="k-roll"></i>Closes quarter-hour by quarter-hour</span></div>
+<figcaption>Amsterdam local time. Hover over or tap a row for details; the shaded area is the delivery day. Bid opening times are drawn only where they matter, and the pauses in continuous trading are schematic.</figcaption>
+</figure>
+<details class="gates-table"><summary>The same times as a table</summary>
+<table><thead><tr><th>Market</th><th>Bids close</th><th>Results</th><th>Delivery</th></tr></thead><tbody>
+<tr><td>FCR capacity</td><td>D-1 08:00 (open from D-7)</td><td>&ndash;</td><td>D, six 4-hour blocks</td></tr>
+<tr><td>aFRR capacity (TenneT)</td><td>D-1 09:00</td><td>&ndash;</td><td>D</td></tr>
+<tr><td>Day-ahead auction</td><td>D-1 12:00</td><td>about 12:45 to 13:00</td><td>D, 96 quarter-hours</td></tr>
+<tr><td>Intraday auction 1</td><td>D-1 15:00</td><td>about 20 min later</td><td>D, whole day</td></tr>
+<tr><td>Intraday auction 2</td><td>D-1 22:00</td><td>about 20 min later</td><td>D, whole day</td></tr>
+<tr><td>Intraday auction 3</td><td>D 10:00</td><td>about 20 min later</td><td>D, 12:00 to 24:00</td></tr>
+<tr><td>Continuous intraday</td><td>At the start of each quarter-hour; 60 min before for cross-border trades</td><td>Trades match continuously</td><td>D</td></tr>
+<tr><td>Balancing energy bids</td><td>25 min before each quarter-hour</td><td>&ndash;</td><td>Activation within the quarter-hour</td></tr>
+<tr><td>Imbalance</td><td>No bids</td><td>Price after each quarter-hour</td><td>Every quarter-hour of D</td></tr>
+</tbody></table></details>
+<script>
+(function () {
+  var fig = document.currentScript.parentNode.querySelector('.gates');
+  if (!fig) return;
+  var body = fig.querySelector('.g-body'), ov = fig.querySelector('.g-overlay'),
+      cross = fig.querySelector('.g-cross'), clock = fig.querySelector('.g-time'), tip = fig.querySelector('.g-tip');
+  var T0 = 6, T1 = 48, active = null;
+  function fmt(h) {
+    var m = Math.round(h * 12) * 5, d = m < 1440 ? 'D-1 ' : 'D ';
+    m = m % 1440; if (h >= 48) { d = 'D '; m = 1440; }
+    return d + String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
+  }
+  function status(row, h) {
+    var k = row.dataset.kind, c = +row.dataset.close, r = +row.dataset.result, f = +row.dataset.from, t = +row.dataset.to;
+    if (k === 'auction') {
+      if (h < c) return 'Bids still open';
+      if (r && h < r) return 'Closed, results being calculated';
+      if (h >= f && h < t) return 'Delivering';
+      return h < f ? 'Closed, waiting for delivery' : 'Finished';
+    }
+    if (k === 'continuous') return h < +row.dataset.open ? 'Not open yet' : h < 24 ? 'Open for all of day D' : 'Open for the quarter-hours still to come';
+    if (k === 'rolling') return h < 24 ? 'Delivery day not started' : 'Bids open for quarter-hours from ' + fmt(Math.ceil((h + 25 / 60) * 4) / 4).slice(-5);
+    return h < 24 ? 'Delivery day not started' : 'Settling each quarter-hour as it ends';
+  }
+  function hourAt(e) {
+    var b = ov.getBoundingClientRect();
+    var p = (e.clientX - b.left) / b.width;
+    return p < 0 || p > 1 ? null : T0 + p * (T1 - T0);
+  }
+  function show(e, row) {
+    var h = hourAt(e);
+    if (h === null) { cross.style.display = 'none'; } else {
+      cross.style.display = 'block';
+      cross.style.left = ((h - T0) / (T1 - T0) * 100) + '%';
+      clock.textContent = fmt(h);
+    }
+    if (active && active !== row) active.classList.remove('is-active');
+    active = row;
+    if (!row) { tip.hidden = true; return; }
+    row.classList.add('is-active');
+    var name = row.querySelector('.g-lab b').textContent;
+    tip.innerHTML = '<b>' + name + '</b>' + (h !== null ? '<span class="g-now">' + fmt(h) + ': ' + status(row, h) + '</span>' : '') + row.dataset.tip;
+    tip.hidden = false;
+    var fb = fig.getBoundingClientRect(), rb = row.getBoundingClientRect();
+    var left = Math.min(Math.max(e.clientX - fb.left + 14, 8), fb.width - tip.offsetWidth - 8);
+    var top = rb.bottom - fb.top + 6;
+    if (top + tip.offsetHeight > fb.height + 40) top = rb.top - fb.top - tip.offsetHeight - 6;
+    tip.style.left = left + 'px'; tip.style.top = top + 'px';
+  }
+  body.addEventListener('pointermove', function (e) { show(e, e.target.closest('.g-row')); });
+  body.addEventListener('pointerdown', function (e) { show(e, e.target.closest('.g-row')); });
+  body.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { cross.style.display = 'none'; show({ clientX: -1e6 }, null); } });
+  fig.querySelectorAll('.g-row').forEach(function (row) {
+    row.addEventListener('focus', function () {
+      var tr = row.querySelector('.g-track').getBoundingClientRect(), c = +row.dataset.close || 24;
+      show({ clientX: tr.left + (c - T0) / (T1 - T0) * tr.width }, row);
+    });
+    row.addEventListener('blur', function () { cross.style.display = 'none'; show({ clientX: -1e6 }, null); });
+  });
+})();
+</script>
+</div>
