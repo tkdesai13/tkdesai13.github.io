@@ -78,6 +78,7 @@ figcaption { font-family: var(--sans); font-size: .82rem; color: var(--muted); m
 table { border-collapse: collapse; width: 100%; font-size: .92rem; margin: 1.5rem 0; }
 th, td { border-bottom: 1px solid var(--rule); padding: .45rem .6rem; text-align: left; }
 th { font-family: var(--sans); font-weight: 600; }
+td { font-variant-numeric: tabular-nums; }
 code { font-family: var(--mono); font-size: .84em; background: var(--code-bg); padding: .1em .32em; border-radius: 3px; }
 pre { background: var(--code-bg); padding: 1rem 1.15rem; overflow-x: auto; border-radius: 6px; line-height: 1.55; }
 pre code { background: none; padding: 0; font-size: .8rem; }
@@ -253,6 +254,29 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 
 .entry-head { display: flex; align-items: center; gap: .9rem; }
 .entry-head .tile { width: 2.9rem; height: 2.9rem; padding: .35rem; border-radius: 8px; }
+
+/* Horizontal bar charts in posts --------------------------------- */
+.hbars { margin: 2rem 0; padding: 1.25rem 1.25rem 1rem; background: var(--paper-2); border-radius: 10px; font-family: var(--sans); }
+.hb-grid { display: grid; grid-template-columns: 7rem minmax(0, 1fr) 2.4rem; column-gap: .75rem; row-gap: .55rem; align-items: center; }
+.hb-label { grid-column: 1; font-size: .78rem; color: var(--muted); text-align: right; line-height: 1.2; }
+.hb-track { grid-column: 2; position: relative; height: 1.35rem; }
+.hb-bar { position: absolute; left: 0; top: 0; bottom: 0; background: var(--return); border-radius: 0 3px 3px 0; }
+.hb-val { grid-column: 3; font-size: .78rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hb-grid .r1 { grid-row: 1; } .hb-grid .r2 { grid-row: 2; } .hb-grid .r3 { grid-row: 3; } .hb-grid .r4 { grid-row: 4; }
+.hb-overlay { grid-column: 2; grid-row: 1 / span 4; position: relative; align-self: stretch; pointer-events: none; }
+.hb-mark { position: absolute; top: -.35rem; bottom: -.35rem; border-left: 2px dashed; }
+.hb-mark.floor { border-color: var(--supply); }
+.hb-mark.ceil { border-color: var(--muted); }
+.hb-axis { grid-column: 2; grid-row: 5; position: relative; height: 1.1rem; border-top: 1px solid var(--rule); font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hb-axis span { position: absolute; top: .2rem; transform: translateX(-50%); }
+.hb-axis span:first-child { transform: none; }
+.hb-legend { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; margin-top: .9rem; font-size: .76rem; color: var(--muted); }
+.hb-legend i { display: inline-block; vertical-align: middle; margin-right: .45rem; }
+.hb-legend .sw-bar { width: .85rem; height: .6rem; border-radius: 2px; background: var(--return); }
+.hb-legend .sw-floor, .hb-legend .sw-ceil { width: 1.1rem; height: 0; border-top: 2px dashed var(--supply); }
+.hb-legend .sw-ceil { border-top-color: var(--muted); }
+.hbars figcaption { margin-top: .6rem; }
+@media (max-width: 560px) { .hb-grid { grid-template-columns: 6.4rem minmax(0, 1fr) 2rem; } .hbars { padding: 1rem .9rem .9rem; } }
 
 /* Diagrams in posts ---------------------------------------------- */
 .ptu-strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 1.75rem 0; font-family: var(--sans); font-size: .74rem; text-align: center; }
