@@ -232,6 +232,7 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 .post-meta { font-family: var(--sans); font-size: .85rem; color: var(--muted); margin: 0; }
 .post-meta .tag { color: var(--supply); margin-left: .9rem; }
 .post-body h2 { margin-top: 2.5rem; }
+.post-body h3 { margin: 2rem 0 .6rem; font-size: 1.02rem; }
 .post-footer { margin-top: 3.5rem; padding-top: 1.1rem; border-top: 1px solid var(--rule); font-family: var(--sans); font-size: .9rem; }
 .post-footer p { display: flex; justify-content: space-between; gap: 1rem; }
 .post-footer .next { margin-left: auto; text-align: right; }
@@ -331,10 +332,10 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
 }
 /* Market gates timeline (Part 1) ------------------------------------ */
 .gates-wrap { margin: 2.25rem 0 2rem; }
-.gates { --lab: 12.25rem; --row: 2.6rem; --g-cap: #2a78d6; --g-da: #eb6834; --g-id: #1baf7a; --g-rt: #e34948;
-  position: relative; margin: 0; font-family: var(--sans); }
-:root[data-theme="dark"] .gates { --g-cap: #3987e5; --g-da: #d95926; --g-id: #199e70; --g-rt: #e66767; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme]) .gates { --g-cap: #3987e5; --g-da: #d95926; --g-id: #199e70; --g-rt: #e66767; } }
+.gates, .glossary { --g-cap: #2a78d6; --g-da: #eb6834; --g-id: #1baf7a; --g-rt: #e34948; }
+:root[data-theme="dark"] .gates, :root[data-theme="dark"] .glossary { --g-cap: #3987e5; --g-da: #d95926; --g-id: #199e70; --g-rt: #e66767; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme]) .gates, :root:not([data-theme]) .glossary { --g-cap: #3987e5; --g-da: #d95926; --g-id: #199e70; --g-rt: #e66767; } }
+.gates { --lab: 12.25rem; --row: 2.6rem; position: relative; margin: 0; font-family: var(--sans); }
 .gates .g-cap { --c: var(--g-cap); } .gates .g-da { --c: var(--g-da); } .gates .g-id { --c: var(--g-id); } .gates .g-rt { --c: var(--g-rt); }
 .g-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .g-inner { min-width: 38rem; }
@@ -410,9 +411,19 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
   .g-daline span { bottom: .25rem; left: .3rem; width: 4.5rem; white-space: normal; font-size: .62rem; }
   .g-track { background: repeating-linear-gradient(to bottom, var(--muted) 0 3px, transparent 3px 6px) no-repeat var(--da) 0 / 1px 100%; }
 }
-.glossary dt { font-family: var(--sans); font-weight: 600; font-size: .92rem; margin-top: 1rem; }
-.glossary dd { margin: .15rem 0 0; }
-.glossary dt:target, .glossary dt:target + dd { background: color-mix(in srgb, var(--supply) 10%, transparent); }
+.glossary { --gl: var(--muted); margin: 1.25rem 0 2rem; }
+.gl-group { margin-top: 1.5rem; }
+.gl-group.gl-cap { --gl: var(--g-cap); } .gl-group.gl-rt { --gl: var(--g-rt); }
+.gl-group h3 { display: flex; align-items: center; gap: .5rem; margin: 0 0 .65rem; font-size: .76rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--ink); }
+.gl-group h3::before { content: ""; width: .7rem; height: .7rem; border-radius: 3px; background: var(--gl); }
+.gl-group dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin: 0; }
+.gl-item { padding: .7rem .85rem .75rem; border: 1px solid var(--rule); border-left: 3px solid var(--gl); border-radius: 4px 8px 8px 4px; background: var(--paper); scroll-margin-top: 1rem; }
+.gl-item dt { font-family: var(--sans); font-weight: 600; font-size: .9rem; line-height: 1.3; color: var(--ink); }
+.gl-full { display: block; font-weight: 400; font-size: .72rem; color: var(--muted); margin-top: .05rem; }
+.gl-short { display: inline-block; margin-left: .4rem; padding: 0 .35rem; border: 1px solid var(--rule); border-radius: 4px; font-size: .68rem; font-weight: 600; color: var(--muted); vertical-align: 1px; }
+.gl-item dd { margin: .3rem 0 0; font-size: .88rem; line-height: 1.5; color: var(--ink); }
+.gl-item:target { background: var(--paper-2); border-color: var(--gl); }
+@media (max-width: 560px) { .gl-group dl { grid-template-columns: 1fr; } }
 
 /* Diagrams in posts ---------------------------------------------- */
 .ptu-strip { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; margin: 1.75rem 0; font-family: var(--sans); font-size: .74rem; text-align: center; }

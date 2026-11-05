@@ -39,7 +39,7 @@ A battery sells two physical things, power (MW) and energy (MWh), and the market
 |---|---|---|
 | Day-ahead | Energy for each quarter-hour of the next day | € per MWh, at one clearing price per quarter-hour |
 | Intraday | Changes to that energy position | € per MWh, in three auctions or by continuous trading |
-| Frequency reserves | Being available to respond | € per MW per hour of availability; for aFRR and mFRR also € per MWh when activated |
+| Frequency reserves | Being available to respond, and energy when called | € per MW per hour of availability (FCR, aFRR); € per MWh when activated (aFRR, mFRR) |
 | Imbalance | Nothing is bid: the deviation from the reported plan | € per MWh deviated, at TenneT's imbalance price |
 
 The difference between the first two and the last two matters. In day-ahead and intraday the battery chooses what it delivers. In the reserve markets it sells the right for TenneT to decide, within limits. In the imbalance market nobody decides anything in advance: the battery deviates from its plan and accepts a price that is only known afterwards.
@@ -51,6 +51,16 @@ Every market sells the same delivery day, but they close at different times. The
 {% include market-gates.html %}
 
 The order matters more than the exact times.[^times] The capacity auctions close before the day-ahead prices are known, so a battery has to decide how much of itself to reserve before it knows what that capacity could have earned in arbitrage. Every later step can only adjust what is left. That sequence is the core of the stacking problem in Part 6.
+
+### Why mFRR has no auction in the chart
+
+In several European countries, manual frequency restoration reserve (mFRR) is a market of its own, with a daily capacity auction next to aFRR. In the Netherlands it matters much less to a battery, and it appears in the chart only as energy bids.
+
+- **TenneT balances mainly with aFRR.** Manual reserve is kept for incidents and large, long-lasting deviations, so it is called rarely.
+- **The emergency reserve is moving to energy bids.** TenneT bought this reserve, mFRRda, in a daily auction on the day before delivery. According to its website, an incident reserve based on energy bids takes over from 1 September 2026.
+- **Standard mFRR is energy-only.** TenneT joined the European MARI platform on 2 December 2025. It does not expect to request standard mFRR under normal conditions, so Dutch bids mainly answer requests from other system operators.
+
+For a battery this means mFRR pays only when it is activated, and it is activated seldom. There is little or no capacity payment to plan the day around, which is why the stacking problem in this series is built mainly on FCR, aFRR, day-ahead, intraday and imbalance. Part 4 checks whether mFRR energy bids are still worth making.
 
 ## What each market takes from the battery
 
@@ -64,40 +74,34 @@ This is why the markets compete. A battery that has emptied itself into an eveni
 
 ## Terms used in this series
 
-<dl class="glossary">
-<dt id="g-bidding-zone">Bidding zone</dt>
-<dd>An area with a single wholesale price. The Netherlands is one bidding zone.</dd>
-<dt id="g-mtu">Market time unit (MTU)</dt>
-<dd>The period one price applies to in the day-ahead and intraday markets: 15 minutes in the Netherlands since 1 October 2025, one hour before.</dd>
-<dt id="g-isp">Imbalance settlement period (ISP)</dt>
-<dd>The 15-minute period over which TenneT measures and settles imbalance. A year has 35,040.</dd>
-<dt id="g-gct">Gate closure time</dt>
-<dd>The deadline for bids in a market.</dd>
-<dt id="g-pac">Pay-as-cleared</dt>
-<dd>Every accepted bid receives the same clearing price, regardless of its own bid price. The alternative, pay-as-bid, pays each bid its own price.</dd>
-<dt id="g-fcr">FCR (frequency containment reserve)</dt>
-<dd>The fastest reserve. It responds automatically to deviations of the grid frequency from 50 Hz, within seconds, in both directions.</dd>
-<dt id="g-afrr">aFRR (automatic frequency restoration reserve)</dt>
-<dd>Activated automatically by TenneT's control system to restore the balance after a disturbance, upward or downward separately.</dd>
-<dt id="g-mfrr">mFRR (manual frequency restoration reserve)</dt>
-<dd>Slower reserve activated on request. Standard mFRR in the Netherlands runs through the European MARI platform since 2 December 2025; TenneT also contracts emergency reserve, called mFRRda.</dd>
-<dt id="g-capacity">Capacity and activation payments</dt>
-<dd>A capacity payment is for being available (€ per MW per hour). An activation payment is for energy actually delivered when called (€ per MWh).</dd>
-<dt id="g-regulation-state">Regulation state</dt>
-<dd>TenneT's label for each quarter-hour: whether it regulated up (the grid was short), down (the grid was long), both, or neither. It determines the imbalance price.</dd>
-<dt id="g-imbalance-price">Imbalance price</dt>
-<dd>The price at which deviations from the reported plan are settled. In most quarter-hours there is a single price; when TenneT regulated in both directions there are two.</dd>
-<dt id="g-soc">State of charge</dt>
-<dd>How full the battery is, as a fraction of its capacity. The example battery is kept between 5% and 95%.</dd>
-<dt id="g-efc">Equivalent full cycle</dt>
-<dd>Throughput equal to fully charging and fully discharging the battery once. Used to compare how hard strategies work the battery.</dd>
-<dt id="g-degradation">Degradation cost</dt>
-<dd>A charge per MWh of throughput that stands in for the wear on the battery, so the optimiser does not cycle it for tiny price differences.</dd>
-<dt id="g-perfect-foresight">Perfect foresight</dt>
-<dd>Optimising against prices that are only known afterwards. It gives an upper bound on what any real strategy can earn.</dd>
-<dt id="g-price-taker">Price-taker</dt>
-<dd>A participant too small to move the price. A 1 MW battery is treated as one throughout.</dd>
-</dl>
+<div class="glossary">
+<section class="gl-group"><h3>Markets and timing</h3><dl>
+<div class="gl-item" id="g-bidding-zone"><dt>Bidding zone</dt><dd>An area with one wholesale price. The Netherlands is one bidding zone.</dd></div>
+<div class="gl-item" id="g-mtu"><dt>Market time unit<span class="gl-short">MTU</span></dt><dd>The period one day-ahead or intraday price applies to. In the Netherlands: 15 minutes since 1 October 2025, one hour before that.</dd></div>
+<div class="gl-item" id="g-gct"><dt>Gate closure</dt><dd>The deadline for bids in a market. After it, the market clears and the position is fixed.</dd></div>
+<div class="gl-item" id="g-pac"><dt>Pay-as-cleared</dt><dd>Every accepted bid receives the same clearing price, whatever it bid. Under pay-as-bid, each bid receives its own price.</dd></div>
+<div class="gl-item" id="g-price-taker"><dt>Price-taker</dt><dd>A participant too small to move the price. The 1 MW battery is treated as one throughout.</dd></div>
+</dl></section>
+<section class="gl-group gl-cap"><h3>Frequency reserves</h3><dl>
+<div class="gl-item" id="g-fcr"><dt>FCR<span class="gl-full">Frequency containment reserve</span></dt><dd>The fastest reserve. It reacts automatically to the grid frequency within seconds, in both directions, and is bought in 4-hour blocks.</dd></div>
+<div class="gl-item" id="g-afrr"><dt>aFRR<span class="gl-full">Automatic frequency restoration reserve</span></dt><dd>The second line. TenneT's control system steers it continuously to bring the balance back. Upward and downward are sold separately.</dd></div>
+<div class="gl-item" id="g-mfrr"><dt>mFRR<span class="gl-full">Manual frequency restoration reserve</span></dt><dd>The slowest reserve, activated on request. In the Netherlands it is called rarely and is paid mainly through energy bids (see above).</dd></div>
+<div class="gl-item" id="g-capacity"><dt>Capacity and activation payment</dt><dd>Capacity: € per MW per hour for being available. Activation: € per MWh for energy actually delivered when called.</dd></div>
+</dl></section>
+<section class="gl-group gl-rt"><h3>Imbalance</h3><dl>
+<div class="gl-item" id="g-isp"><dt>Imbalance settlement period<span class="gl-short">ISP</span></dt><dd>The 15 minutes over which TenneT measures and settles imbalance. A year has 35,040 of them.</dd></div>
+<div class="gl-item" id="g-regulation-state"><dt>Regulation state</dt><dd>TenneT's label for each ISP: +1 when it regulated up (grid short), &minus;1 down (grid long), 2 both ways, 0 neither.</dd></div>
+<div class="gl-item" id="g-imbalance-price"><dt>Imbalance price</dt><dd>The price for deviations from the reported plan, set by the regulation state. Usually one price; two when TenneT regulated both ways.</dd></div>
+<div class="gl-item" id="g-passive"><dt>Passive balancing</dt><dd>Deviating from the plan on purpose to help the grid, paid through the imbalance price. TenneT allows and encourages it.</dd></div>
+</dl></section>
+<section class="gl-group"><h3>The battery and the model</h3><dl>
+<div class="gl-item" id="g-soc"><dt>State of charge<span class="gl-short">SoC</span></dt><dd>How full the battery is, as a share of its capacity. The example battery stays between 5% and 95%.</dd></div>
+<div class="gl-item" id="g-rte"><dt>Round-trip efficiency</dt><dd>The share of energy that comes back out. At 90%, 1 MWh charged returns 0.9 MWh.</dd></div>
+<div class="gl-item" id="g-efc"><dt>Equivalent full cycle</dt><dd>Throughput equal to one full charge and one full discharge. Used to compare how hard strategies work the battery.</dd></div>
+<div class="gl-item" id="g-degradation"><dt>Degradation cost</dt><dd>A charge per MWh of throughput that stands in for wear, so the optimiser does not cycle the battery for tiny price differences.</dd></div>
+<div class="gl-item" id="g-perfect-foresight"><dt>Perfect foresight</dt><dd>Optimising against prices that are only known afterwards. It gives an upper bound on what any real strategy can earn.</dd></div>
+</dl></section>
+</div>
 
 ## The rest of the series
 

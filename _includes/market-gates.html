@@ -1,6 +1,6 @@
 {% comment %} Timeline of market gates for one delivery day. Generated; positions are % of D-1 06:00 to D 24:00. {% endcomment %}
 <div class="gates-wrap">
-<figure class="gates" style="--da:16.27%" aria-label="Chart: when each market closes for bids and when it delivers, from 06:00 on the day before delivery to the end of the delivery day. The capacity auctions close at 08:00 and 09:00, the day-ahead auction at 12:00, intraday auctions at 15:00 and 22:00 on the day before and 10:00 on the delivery day. Continuous intraday trading, balancing energy bids and imbalance settlement run quarter-hour by quarter-hour on the delivery day.">
+<figure class="gates" style="--da:16.27%" aria-label="Chart: when each market closes for bids and when it delivers, from 06:00 on the day before delivery to the end of the delivery day. The capacity auctions close at 08:00 and 09:00, the day-ahead auction at 12:00, intraday auctions at 15:00 and 22:00 on the day before and 10:00 on the delivery day. Continuous intraday trading, aFRR and mFRR energy bids and imbalance settlement run quarter-hour by quarter-hour on the delivery day.">
 <div class="g-scroll"><div class="g-inner">
 <div class="g-days"><span class="g-lab"></span><span class="g-axis"><span class="g-day" style="left:0;width:42.857%">D-1, the day before</span><span class="g-day g-day-d" style="left:42.857%;width:57.143%">D, delivery day</span></span></div>
 <div class="g-body">
@@ -10,7 +10,7 @@
 <span class="g-lab"><b>FCR capacity</b><span>closes D-1 08:00</span></span>
 <span class="g-track"><i class="m-bid" style="left:0.0%;width:4.762%"></i><i class="m-del" style="left:42.857%;width:9.524000000000001%"></i><i class="m-del" style="left:52.381%;width:9.524000000000001%"></i><i class="m-del" style="left:61.905%;width:9.524000000000001%"></i><i class="m-del" style="left:71.429%;width:9.522999999999996%"></i><i class="m-del" style="left:80.952%;width:9.524000000000001%"></i><i class="m-del" style="left:90.476%;width:9.524000000000001%"></i><i class="m-gate" style="left:4.762%"></i></span>
 </div>
-<div class="g-row g-cap" tabindex="0" data-kind="auction" data-close="9" data-from="24" data-to="48" data-tip="TenneT's daily auction for automatic frequency restoration reserve, upward and downward separately, closing at 09:00 on D-1. TenneT also contracts emergency reserve (mFRRda) a day ahead.">
+<div class="g-row g-cap" tabindex="0" data-kind="auction" data-close="9" data-from="24" data-to="48" data-tip="TenneT's daily auction for automatic frequency restoration reserve, upward and downward separately, closing at 09:00 on D-1. Winning bids must then be offered as aFRR energy bids on day D.">
 <span class="g-lab"><b>aFRR capacity</b><span>closes D-1 09:00</span></span>
 <span class="g-track"><i class="m-bid" style="left:0.0%;width:7.143%"></i><i class="m-del" style="left:42.857%;width:57.143%"></i><i class="m-gate" style="left:7.143%"></i></span>
 </div>
@@ -37,8 +37,12 @@
 <span class="g-track"><i class="m-bid" style="left:19.048%;width:3.5710000000000015%"></i><i class="m-open" style="left:22.619%;width:14.881%"></i><i class="m-open" style="left:38.69%;width:4.167000000000002%"></i><i class="m-roll" style="left:42.857%;width:23.214%"></i><i class="m-roll" style="left:67.262%;width:32.738%"></i></span>
 </div>
 <div class="g-group g-rt"><span class="g-lab"><i class="g-sw"></i>Real time<span class="g-gsub">Balancing the grid</span></span><span class="g-axis"></span></div>
-<div class="g-row g-rt" tabindex="0" data-kind="rolling" data-tip="Offers to TenneT to be activated for aFRR and mFRR. Bids for each quarter-hour close 25 minutes before it starts. Contracted aFRR capacity must be offered here; other prequalified units can add free bids.">
-<span class="g-lab"><b>Balancing energy bids</b><span>25 min before each quarter-hour</span></span>
+<div class="g-row g-rt" tabindex="0" data-kind="rolling" data-tip="Offers to TenneT to be activated for aFRR, paid per MWh. Bids for each quarter-hour close 25 minutes before it starts. Capacity sold in the aFRR auction must be offered here; other prequalified units can add free bids.">
+<span class="g-lab"><b>aFRR energy bids</b><span>25 min before each quarter-hour</span></span>
+<span class="g-track"><i class="m-roll" style="left:42.857%;width:57.143%"></i></span>
+</div>
+<div class="g-row g-rt" tabindex="0" data-kind="rolling" data-tip="Standard mFRR through the European MARI platform, energy bids only, since 2 December 2025. TenneT does not expect to call it under normal conditions, so Dutch bids mainly answer other countries' requests. TenneT's emergency reserve is moving to energy bids as well.">
+<span class="g-lab"><b>mFRR energy bids</b><span>25 min before each quarter-hour</span></span>
 <span class="g-track"><i class="m-roll" style="left:42.857%;width:57.143%"></i></span>
 </div>
 <div class="g-row g-rt" tabindex="0" data-kind="settle" data-from="24" data-to="48" data-tip="Nothing is bid. Every deviation from the reported plan is settled at TenneT's imbalance price, which is known only after each quarter-hour has ended.">
@@ -61,7 +65,8 @@
 <tr><td>Intraday auction 2</td><td>D-1 22:00</td><td>about 20 min later</td><td>D, whole day</td></tr>
 <tr><td>Intraday auction 3</td><td>D 10:00</td><td>about 20 min later</td><td>D, 12:00 to 24:00</td></tr>
 <tr><td>Continuous intraday</td><td>At the start of each quarter-hour; 60 min before for cross-border trades</td><td>Trades match continuously</td><td>D</td></tr>
-<tr><td>Balancing energy bids</td><td>25 min before each quarter-hour</td><td>&ndash;</td><td>Activation within the quarter-hour</td></tr>
+<tr><td>aFRR energy bids</td><td>25 min before each quarter-hour</td><td>&ndash;</td><td>Activation within the quarter-hour</td></tr>
+<tr><td>mFRR energy bids (MARI)</td><td>25 min before each quarter-hour</td><td>&ndash;</td><td>Activation within the quarter-hour, rarely in the Netherlands</td></tr>
 <tr><td>Imbalance</td><td>No bids</td><td>Price after each quarter-hour</td><td>Every quarter-hour of D</td></tr>
 </tbody></table></details>
 <script>
